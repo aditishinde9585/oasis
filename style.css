@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  background: black;
+  color: white;
+}
+
+/* Animated Stars Background */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/3XbTQym.png') repeat;
+  animation: starScroll 100s linear infinite;
+  z-index: -1;
+}
+
+@keyframes starScroll {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+/* Typing animation */
+.typing::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing {
+  display: inline-block;
+  font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(30, end) forwards;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+h1 {
+  margin: 30px 0 20px;
+}
+
+/* Glowing Container */
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0,255,255,0.4);
+  border: 1px solid #00f2fe;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px #00f2fe; }
+  to { box-shadow: 0 0 20px #00f2fe; }
+}
+
+input, select, button {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+input, select {
+  background: rgba(255,255,255,0.8);
+}
+
+button {
+  background: #00f2fe;
+  color: #000;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button::after {
+  content: "";
+  background: rgba(255,255,255,0.5);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: 0;
+}
+
+button:hover::after {
+  width: 200%;
+  height: 500%;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00f2fe;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: popUp 0.5s ease-in-out;
+}
+
+@keyframes popUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
